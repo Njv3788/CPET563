@@ -2,26 +2,31 @@
 clc
 clear
 
-left5 = rgb2gray(imread('left6.jpg'));
-subplot(3,2,1)
+left5 = rgb2gray(imread('left7.jpg'));
+subplot(4,2,1)
 imshow(left5)
 
-right5 = rgb2gray(imread('right6.jpg'));
-subplot(3,2,2)
+right5 = rgb2gray(imread('right7.jpg'));
+subplot(4,2,2)
 imshow(right5)
 
-rlsub = right5-left5;
-subplot(3,2,3)
-imshow(rlsub)
-
-rlplus = (right5 + left5);
-subplot(3,2,4)
-imshow(rlplus)
-
-rpp = (rlplus - 2*rlsub);
-subplot(3,2,5)
+rpp = right5;
+subplot(4,2,4)
 imshow(rpp)
 
-[BW,threshold] = edge(rpp,"sobel",0.25,"both","nothinning");
-subplot(3,2,6)
-imshow(BW)
+lpp = left5;
+subplot(4,2,3)
+imshow(lpp)
+
+
+[spp,threshold] = edge(lpp,"sobel",0.05,"both","nothinning");
+subplot(4,2,5)
+[c,r,m] = imfindcircles(spp,[10,100]);
+imshow(spp)
+viscircles(c, r,'EdgeColor','b');
+
+[spp,threshold] = edge(rpp,"sobel",0.043,"both","nothinning");
+subplot(4,2,6)
+[c,r,m] = imfindcircles(spp,[10,100]);
+imshow(spp)
+viscircles(c, r,'EdgeColor','b');
