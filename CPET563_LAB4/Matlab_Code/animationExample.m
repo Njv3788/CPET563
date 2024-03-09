@@ -21,6 +21,6 @@ for i = 1:length(yawRotation)
     unityImage = unityLink(client,pose);
     imshow(unityImage);
 end
-
+delete(client)
 %Close Gracefully
 fprintf(1,"Disconnected from server\n");
