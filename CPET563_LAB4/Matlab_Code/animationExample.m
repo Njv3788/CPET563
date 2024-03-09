@@ -13,11 +13,11 @@ client = tcpclient(server_ip,server_port);
 fprintf(1,"Connected to server\n");
 
 %Rotation Code
-yawRotation = [-10:10];
-pose = [-2,0,0,10,0,0];
+yawRotation = [-1:0.1:1];
+pose = [-2,1,0,0,0,0];
 for i = 1:length(yawRotation)
     % x,y,z,yaw[z],pitch[y],roll[x]
-    pose(4) = yawRotation(i);
+    pose(2) = yawRotation(i);
     unityImage = unityLink(client,pose);
     imshow(unityImage);
 end

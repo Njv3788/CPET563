@@ -13,7 +13,7 @@ client = tcpclient(server_ip,server_port);
 fprintf(1,"Connected to server\n");
 
 % x,y,z,yaw[z],pitch[y],roll[x]
-pose = [-2,0,0,10,0,0];
+pose = [-2,1,0,0,0,0];
 unityImage = unityLink(client,pose);
 
 imshow(unityImage);
